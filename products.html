@@ -17,7 +17,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
 
    <!-- Place favicon.ico in the root directory -->
-   <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo/favicon.png">
+   <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
    <!-- CSS here -->
    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -32,6 +32,276 @@
 
 </head>
 <style>
+ 
+        .gx-35 > [class*="col-"] {
+            padding-right: 17.5px;
+            padding-left: 17.5px;
+        }
+        .it-product-item {
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #d0d7de;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+            transition: box-shadow 0.25s ease, transform 0.2s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+        .it-product-item:hover {
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+            transform: translateY(-3px);
+            border-color: #b0b9c4;
+        }
+        .it-product-thumb {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f2f5;
+            cursor: pointer;
+        }
+        .it-product-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .it-product-item:hover .it-product-thumb img {
+            transform: scale(1.02);
+        }
+        /* Zoom icon overlay */
+        .it-product-thumb .zoom-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        .it-product-thumb:hover .zoom-icon {
+            opacity: 1;
+        }
+        .it-product-content {
+            padding: 20px 18px 22px;
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+        }
+        .mb-25 {
+            margin-bottom: 16px;
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .it-product-ratting {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .it-product-ammount {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            color: #1f2a3a;
+            background: #eef2f6;
+            padding: 4px 12px;
+            border-radius: 40px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .it-product-rating {
+            color: #f5b342;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        .it-product-rating i {
+            margin-right: 1px;
+        }
+        .it-product-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin: 6px 0 8px;
+        }
+        .it-product-title a {
+            color: #0b1e33;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .it-product-title a:hover {
+            color: #0057b3;
+        }
+        .border-line-black {
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .border-line-black:hover {
+            border-bottom-color: #0b1e33;
+        }
+        /* Description - full text, no hiding */
+        .it-product-ratting.mb-20 .it-product-ammount {
+            background: transparent;
+            padding: 0;
+            font-weight: 400;
+            text-transform: none;
+            color: #2d3748;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            white-space: normal;
+            overflow: visible;
+            text-overflow: clip;
+            max-height: none;
+            -webkit-line-clamp: unset;
+            display: block;
+        }
+        .it-product-btn {
+            margin-top: 6px;
+            padding-top: 12px;
+            border-top: 1px solid #e9edf2;
+            flex-shrink: 0;
+        }
+        .it-btn-sm {
+            display: inline-flex;
+            align-items: center;
+            background: transparent;
+            color: #1a2b3e;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 8px 16px 8px 16px;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            letter-spacing: 0.3px;
+        }
+        .it-btn-sm span {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .it-btn-sm i {
+            font-size: 0.9rem;
+            transition: transform 0.2s ease;
+        }
+        .it-btn-sm:hover {
+            color: #0057b3;
+        }
+        .it-btn-sm:hover i {
+            transform: translateX(4px);
+        }
+        .mb-35 {
+            margin-bottom: 30px;
+        }
+        .d-flex {
+            display: flex;
+        }
+        .justify-content-between {
+            justify-content: space-between;
+        }
+        .align-items-center {
+            align-items: center;
+        }
+        .p-relative {
+            position: relative;
+        }
+        .fix {
+            overflow: hidden;
+        }
+
+        /* ----- LIGHTBOX STYLES ----- */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            padding: 40px 20px;
+        }
+        .lightbox-overlay.active {
+            display: flex;
+        }
+        .lightbox-overlay .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .lightbox-overlay .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        .lightbox-overlay .close-btn {
+            position: absolute;
+            top: -45px;
+            right: -10px;
+            color: #fff;
+            font-size: 32px;
+            font-weight: 300;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            background: none;
+            border: none;
+            line-height: 1;
+        }
+        .lightbox-overlay .close-btn:hover {
+            transform: rotate(90deg);
+        }
+        .lightbox-overlay .lightbox-caption {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #ddd;
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+
+        @media (max-width: 576px) {
+            .it-product-thumb {
+                height: 180px;
+            }
+            .it-product-content {
+                padding: 16px 14px;
+            }
+            .lightbox-overlay .lightbox-content img {
+                max-height: 80vh;
+            }
+            .lightbox-overlay .close-btn {
+                top: -40px;
+                right: -5px;
+                font-size: 28px;
+            }
+        }
+    
    .it-copyright-left p {
     text-align: center;
 }
@@ -357,243 +627,478 @@
       <div class="it-product-2-area it-product-inner-style-3 pt-130 pb-130">
          <div class="container">
             
-            <div class="row gx-35">
-               <div class="col-lg-4 col-md-6 mb-35 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-                  <div class="it-product-item p-relative">
-                     <div class="it-product-thumb-box">
-                        <div class="it-product-thumb fix p-relative">
-                           <img src="assets/img/product1.jpg" alt="" style="height: 350px;">
-                          
-                        </div>
-                     </div>
-                     <div class="it-product-content">
-                        <div class="mb-25">
-                            <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
-                              <span class="it-product-ammount">Premium</span>
-                              <span class="it-product-rating">
-                                 <i class="fa-solid fa-star"></i>
-                                 <i class="fa-solid fa-star"></i>
-                                 <i class="fa-solid fa-star"></i>
-                                 <i class="fa-solid fa-star"></i>
-                                 <i class="fa-solid fa-star"></i>
-                                 (05)
-                              </span>
-                           </div>
-                           <h3 class="it-product-title">
-                              <a href="contact.html" class="border-line-black">
-                               PP Fluted / Bubble Guard Sheets </a>
-                           </h3>
-                           <!-- <div class="it-product-price mb-20">
-                              <span class="it-product-amount">$30.00</span>
-                              <span>$20.00</span>
-                           </div> -->
-                            <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
-                              <span class="it-product-ammount">Lightweight yet durable polypropylene sheets designed for reusable and 
-economical packaging. They offer excellent resistance to moisture, chemicals, and 
-impact, making them ideal for industrial, logistics, and material-handling 
-applications.</span>
-                             
-                           </div>
-                        </div>
-                        <div class="it-product-btn">
-                           <a class="it-btn-sm" href="contact.html">
-                              <span>
-                                 Shop Now
-                                 <i class="fa-regular fa-cart-shopping"></i>
-                              </span>
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-         <div class="col-lg-4 col-md-6 mb-35 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-                  <div class="it-product-item p-relative">
-                     <div class="it-product-thumb-box">
-                        <div class="it-product-thumb fix p-relative">
-                           <img src="assets/img/product2.jpg" alt="">
-                          
-                        </div>
-                     </div>
-                     <div class="it-product-content">
-                        <div class="mb-25">
-                            <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
-                              <span class="it-product-ammount">Premium</span>
-                              <span class="it-product-rating">
-                                 <i class="fa-solid fa-star"></i>
-                                 <i class="fa-solid fa-star"></i>
-                                 <i class="fa-solid fa-star"></i>
-                                 <i class="fa-solid fa-star"></i>
-                                 <i class="fa-solid fa-star"></i>
-                                 (05)
-                              </span>
-                           </div>
-                           <h3 class="it-product-title">
-                              <a href="contact.html" class="border-line-black">
-                              Air Bubble Rolls </a>
-                           </h3>
-                           <!-- <div class="it-product-price mb-20">
-                              <span class="it-product-amount">$30.00</span>
-                              <span>$20.00</span>
-                           </div> -->
-                            <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
-                              <span class="it-product-ammount">Designed to provide superior cushioning and shock absorption during storage and 
-transportation. Air Bubble rolls effectively protect products from impact damage 
-and surface scratches.</span>
-                             
-                           </div>
-                        </div>
-                        <div class="it-product-btn">
-                           <a class="it-btn-sm" href="contact.html">
-                              <span>
-                                 Shop Now
-                                 <i class="fa-regular fa-cart-shopping"></i>
-                              </span>
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>      
-<div class="col-lg-4 col-md-6 mb-35 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-                  <div class="it-product-item p-relative">
-                     <div class="it-product-thumb-box">
-                        <div class="it-product-thumb fix p-relative">
-                           <img src="assets/img/product3.jpg" alt="">
-                          
-                        </div>
-                     </div>
-                     <div class="it-product-content">
-                        <div class="mb-25">
-                            <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
-                              <span class="it-product-ammount">Premium</span>
-                              <span class="it-product-rating">
-                                 <i class="fa-solid fa-star"></i>
-                                 <i class="fa-solid fa-star"></i>
-                                 <i class="fa-solid fa-star"></i>
-                                 <i class="fa-solid fa-star"></i>
-                                 <i class="fa-solid fa-star"></i>
-                                 (05)
-                              </span>
-                           </div>
-                           <h3 class="it-product-title">
-                              <a href="contact.html" class="border-line-black">
-                              EPE Foam  </a>
-                           </h3>
-                           <!-- <div class="it-product-price mb-20">
-                              <span class="it-product-amount">$30.00</span>
-                              <span>$20.00</span>
-                           </div> -->
-                            <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
-                              <span class="it-product-ammount">Expanded Polyethylene (EPE) foam is a versatile, flexible, and non-abrasive 
-material offering excellent cushioning, insulation, and protective properties for a 
-wide range of packaging applications.</span>
-                             
-                           </div>
-                        </div>
-                        <div class="it-product-btn">
-                           <a class="it-btn-sm" href="contact.html">
-                              <span>
-                                 Shop Now
-                                 <i class="fa-regular fa-cart-shopping"></i>
-                              </span>
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>   
-<div class="col-lg-4 col-md-6 mb-35 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-                  <div class="it-product-item p-relative">
-                     <div class="it-product-thumb-box">
-                        <div class="it-product-thumb fix p-relative">
-                           <img src="assets/img/product4.jpg" alt="">
-                          
-                        </div>
-                     </div>
-                     <div class="it-product-content">
-                        <div class="mb-25">
-                            <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
-                              <span class="it-product-ammount">Premium</span>
-                              <span class="it-product-rating">
-                                 <i class="fa-solid fa-star"></i>
-                                 <i class="fa-solid fa-star"></i>
-                                 <i class="fa-solid fa-star"></i>
-                                 <i class="fa-solid fa-star"></i>
-                                 <i class="fa-solid fa-star"></i>
-                                 (05)
-                              </span>
-                           </div>
-                           <h3 class="it-product-title">
-                              <a href="contact.html" class="border-line-black">
-                            Crosslinked Foam (XLPE) Sheets  </a>
-                           </h3>
-                           <!-- <div class="it-product-price mb-20">
-                              <span class="it-product-amount">$30.00</span>
-                              <span>$20.00</span>
-                           </div> -->
-                            <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
-                              <span class="it-product-ammount">Premium-grade foam sheets with a uniform cell structure, offering enhanced 
-strength, durability, and cushioning performance for demanding and high-value 
-applications.</span>
-                             
-                           </div>
-                        </div>
-                        <div class="it-product-btn">
-                           <a class="it-btn-sm" href="contact.html">
-                              <span>
-                                 Shop Now
-                                 <i class="fa-regular fa-cart-shopping"></i>
-                              </span>
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>  
-               <div class="col-lg-4 col-md-6 mb-35 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-                  <div class="it-product-item p-relative">
-                     <div class="it-product-thumb-box">
-                        <div class="it-product-thumb fix p-relative">
-                           <img src="assets/img/product5.jpg" alt="">
-                          
-                        </div>
-                     </div>
-                     <div class="it-product-content">
-                        <div class="mb-25">
-                            <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
-                              <span class="it-product-ammount">Premium</span>
-                              <span class="it-product-rating">
-                                 <i class="fa-solid fa-star"></i>
-                                 <i class="fa-solid fa-star"></i>
-                                 <i class="fa-solid fa-star"></i>
-                                 <i class="fa-solid fa-star"></i>
-                                 <i class="fa-solid fa-star"></i>
-                                 (05)
-                              </span>
-                           </div>
-                           <h3 class="it-product-title">
-                              <a href="contact.html" class="border-line-black">
-                           Foldable HDPE Crates </a>
-                           </h3>
-                           <!-- <div class="it-product-price mb-20">
-                              <span class="it-product-amount">$30.00</span>
-                              <span>$20.00</span>
-                           </div> -->
-                            <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
-                              <span class="it-product-ammount">Durable, reusable, and space-saving crates designed for efficient storage and 
-transportation across industrial and logistics sectors. </span>
-                             
-                           </div>
-                        </div>
-                        <div class="it-product-btn">
-                           <a class="it-btn-sm" href="contact.html">
-                              <span>
-                                 Shop Now
-                                 <i class="fa-regular fa-cart-shopping"></i>
-                              </span>
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div> 
+         <div class="row gx-35">
+ 
+  
+
+    <!-- Product 1 -->
+    <div class="col-lg-4 col-md-6 mb-35 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+        <div class="it-product-item p-relative">
+            <div class="it-product-thumb-box">
+                <div class="it-product-thumb fix p-relative" onclick="openLightbox(this)">
+                    <img src="assets/img/product1.jpg" alt="PP Fluted / Bubble Guard Sheets" style="height: 350px;">
+                    <span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                </div>
             </div>
+            <div class="it-product-content">
+                <div class="mb-25">
+                    <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
+                        <span class="it-product-ammount">Premium</span>
+                        <span class="it-product-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            (05)
+                        </span>
+                    </div>
+                    <h3 class="it-product-title">
+                        <a href="contact.html" class="border-line-black">PP Fluted / Bubble Guard Sheets</a>
+                    </h3>
+                    <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
+                        <span class="it-product-ammount">Lightweight yet durable polypropylene sheets designed for reusable and economical packaging. They offer excellent resistance to moisture, chemicals, and impact, making them ideal for industrial, logistics, and material-handling applications.</span>
+                    </div>
+                </div>
+                <div class="it-product-btn">
+                    <a class="it-btn-sm" href="contact.html">
+                        <span>Shop Now <i class="fa-regular fa-cart-shopping"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="col-lg-4 col-md-6 mb-35 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+        <div class="it-product-item p-relative">
+            <div class="it-product-thumb-box">
+                <div class="it-product-thumb fix p-relative" onclick="openLightbox(this)">
+                    <img src="assets/img/product7.png" alt="Air Bubble Rolls" style="height: 350px;">
+                    <span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                </div>
+            </div>
+            <div class="it-product-content">
+                <div class="mb-25">
+                    <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
+                        <span class="it-product-ammount">Premium</span>
+                        <span class="it-product-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            (05)
+                        </span>
+                    </div>
+                    <h3 class="it-product-title">
+                        <a href="contact.html" class="border-line-black">Air Bubble Rolls</a>
+                    </h3>
+                    <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
+                        <span class="it-product-ammount">Designed to provide superior cushioning and shock absorption during storage and transportation. Air Bubble rolls effectively protect products from impact damage and surface scratches.</span>
+                    </div>
+                </div>
+                <div class="it-product-btn">
+                    <a class="it-btn-sm" href="contact.html">
+                        <span>Shop Now <i class="fa-regular fa-cart-shopping"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="col-lg-4 col-md-6 mb-35 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+        <div class="it-product-item p-relative">
+            <div class="it-product-thumb-box">
+                <div class="it-product-thumb fix p-relative" onclick="openLightbox(this)">
+                    <img src="assets/img/product3.jpg" alt="EPE Foam" style="height: 350px;">
+                    <span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                </div>
+            </div>
+            <div class="it-product-content">
+                <div class="mb-25">
+                    <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
+                        <span class="it-product-ammount">Premium</span>
+                        <span class="it-product-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            (05)
+                        </span>
+                    </div>
+                    <h3 class="it-product-title">
+                        <a href="contact.html" class="border-line-black">EPE Foam</a>
+                    </h3>
+                    <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
+                        <span class="it-product-ammount">Expanded Polyethylene (EPE) foam is a versatile, flexible, and non-abrasive material offering excellent cushioning, insulation, and protective properties for a wide range of packaging applications.</span>
+                    </div>
+                </div>
+                <div class="it-product-btn">
+                    <a class="it-btn-sm" href="contact.html">
+                        <span>Shop Now <i class="fa-regular fa-cart-shopping"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="col-lg-4 col-md-6 mb-35 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+        <div class="it-product-item p-relative">
+            <div class="it-product-thumb-box">
+                <div class="it-product-thumb fix p-relative" onclick="openLightbox(this)">
+                    <img src="assets/img/product4.jpg" alt="Crosslinked Foam (XLPE) Sheets" style="height: 350px;">
+                    <span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                </div>
+            </div>
+            <div class="it-product-content">
+                <div class="mb-25">
+                    <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
+                        <span class="it-product-ammount">Premium</span>
+                        <span class="it-product-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            (05)
+                        </span>
+                    </div>
+                    <h3 class="it-product-title">
+                        <a href="contact.html" class="border-line-black">Crosslinked Foam (XLPE) Sheets</a>
+                    </h3>
+                    <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
+                        <span class="it-product-ammount">Premium-grade foam sheets with a uniform cell structure, offering enhanced strength, durability, and cushioning performance for demanding and high-value applications.</span>
+                    </div>
+                </div>
+                <div class="it-product-btn">
+                    <a class="it-btn-sm" href="contact.html">
+                        <span>Shop Now <i class="fa-regular fa-cart-shopping"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product 5 -->
+    <div class="col-lg-4 col-md-6 mb-35 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+        <div class="it-product-item p-relative">
+            <div class="it-product-thumb-box">
+                <div class="it-product-thumb fix p-relative" onclick="openLightbox(this)">
+                    <img src="assets/img/product11.png" alt="Foldable HDPE Crates" style="height: 350px;">
+                    <span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                </div>
+            </div>
+            <div class="it-product-content">
+                <div class="mb-25">
+                    <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
+                        <span class="it-product-ammount">Premium</span>
+                        <span class="it-product-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            (05)
+                        </span>
+                    </div>
+                    <h3 class="it-product-title">
+                        <a href="contact.html" class="border-line-black">Foldable HDPE Crates</a>
+                    </h3>
+                    <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
+                        <span class="it-product-ammount">Durable, reusable, and space-saving crates designed for efficient storage and transportation across industrial and logistics sectors.</span>
+                    </div>
+                </div>
+                <div class="it-product-btn">
+                    <a class="it-btn-sm" href="contact.html">
+                        <span>Shop Now <i class="fa-regular fa-cart-shopping"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product 6: Stretch Film -->
+    <div class="col-lg-4 col-md-6 mb-35 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+        <div class="it-product-item p-relative">
+            <div class="it-product-thumb-box">
+                <div class="it-product-thumb fix p-relative" onclick="openLightbox(this)">
+                    <img src="assets/img/product6.png" alt="Stretch Film" style="height: 350px;">
+                    <span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                </div>
+            </div>
+            <div class="it-product-content">
+                <div class="mb-25">
+                    <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
+                        <span class="it-product-ammount">Premium</span>
+                        <span class="it-product-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            (05)
+                        </span>
+                    </div>
+                    <h3 class="it-product-title">
+                        <a href="contact.html" class="border-line-black">Stretch Film</a>
+                    </h3>
+                    <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
+                        <span class="it-product-ammount">High-quality stretch film designed for secure pallet wrapping and load stability during transportation. Offers excellent puncture resistance, cling properties, and stretchability to keep your products tightly secured and protected from dust and moisture.</span>
+                    </div>
+                </div>
+                <div class="it-product-btn">
+                    <a class="it-btn-sm" href="contact.html">
+                        <span>Shop Now <i class="fa-regular fa-cart-shopping"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product 7: Corrugated Roll -->
+    <div class="col-lg-4 col-md-6 mb-35 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+        <div class="it-product-item p-relative">
+            <div class="it-product-thumb-box">
+                <div class="it-product-thumb fix p-relative" onclick="openLightbox(this)">
+                    <img src="assets/img/product8.png" alt="Corrugated Roll" style="height: 350px;">
+                    <span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                </div>
+            </div>
+            <div class="it-product-content">
+                <div class="mb-25">
+                    <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
+                        <span class="it-product-ammount">Premium</span>
+                        <span class="it-product-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            (05)
+                        </span>
+                    </div>
+                    <h3 class="it-product-title">
+                        <a href="contact.html" class="border-line-black">Corrugated Roll</a>
+                    </h3>
+                    <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
+                        <span class="it-product-ammount">Versatile corrugated rolls made from high-strength kraft paper, ideal for wrapping, padding, and protecting products during shipping. Provides excellent cushioning and surface protection, suitable for use as void fill or interleaving material.</span>
+                    </div>
+                </div>
+                <div class="it-product-btn">
+                    <a class="it-btn-sm" href="contact.html">
+                        <span>Shop Now <i class="fa-regular fa-cart-shopping"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product 8: 5ply Corrugated Box -->
+    <div class="col-lg-4 col-md-6 mb-35 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+        <div class="it-product-item p-relative">
+            <div class="it-product-thumb-box">
+                <div class="it-product-thumb fix p-relative" onclick="openLightbox(this)">
+                    <img src="assets/img/product9.png" alt="5ply Corrugated Box" style="height: 350px;">
+                    <span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                </div>
+            </div>
+            <div class="it-product-content">
+                <div class="mb-25">
+                    <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
+                        <span class="it-product-ammount">Premium</span>
+                        <span class="it-product-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            (05)
+                        </span>
+                    </div>
+                    <h3 class="it-product-title">
+                        <a href="contact.html" class="border-line-black">5ply Corrugated Box</a>
+                    </h3>
+                    <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
+                        <span class="it-product-ammount">Heavy-duty 5-ply corrugated boxes engineered for maximum strength and durability. Perfect for shipping and storing heavy or bulky items, offering superior crush resistance and stacking strength for industrial and commercial applications.</span>
+                    </div>
+                </div>
+                <div class="it-product-btn">
+                    <a class="it-btn-sm" href="contact.html">
+                        <span>Shop Now <i class="fa-regular fa-cart-shopping"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product 9: 3ply Corrugated Box -->
+    <div class="col-lg-4 col-md-6 mb-35 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+        <div class="it-product-item p-relative">
+            <div class="it-product-thumb-box">
+                <div class="it-product-thumb fix p-relative" onclick="openLightbox(this)">
+                    <img src="assets/img/product10.png" alt="3ply Corrugated Box" style="height: 350px;">
+                    <span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                </div>
+            </div>
+            <div class="it-product-content">
+                <div class="mb-25">
+                    <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
+                        <span class="it-product-ammount">Premium</span>
+                        <span class="it-product-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            (05)
+                        </span>
+                    </div>
+                    <h3 class="it-product-title">
+                        <a href="contact.html" class="border-line-black">3ply Corrugated Box</a>
+                    </h3>
+                    <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
+                        <span class="it-product-ammount">Lightweight yet sturdy 3-ply corrugated boxes designed for everyday packaging needs. Provides reliable protection for lightweight to medium-weight products, ideal for e-commerce shipping, retail packaging, and general storage purposes.</span>
+                    </div>
+                </div>
+                <div class="it-product-btn">
+                    <a class="it-btn-sm" href="contact.html">
+                        <span>Shop Now <i class="fa-regular fa-cart-shopping"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product 10: Plastic Storage Crate With Partition -->
+    <div class="col-lg-4 col-md-6 mb-35 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+        <div class="it-product-item p-relative">
+            <div class="it-product-thumb-box">
+                <div class="it-product-thumb fix p-relative" onclick="openLightbox(this)">
+                    <img src="assets/img/product12.png" alt="Plastic Storage Crate With Partition" style="height: 350px;">
+                    <span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                </div>
+            </div>
+            <div class="it-product-content">
+                <div class="mb-25">
+                    <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
+                        <span class="it-product-ammount">Premium</span>
+                        <span class="it-product-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            (05)
+                        </span>
+                    </div>
+                    <h3 class="it-product-title">
+                        <a href="contact.html" class="border-line-black">Plastic Storage Crate With Partition</a>
+                    </h3>
+                    <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
+                        <span class="it-product-ammount">Durable plastic storage crates featuring built-in partitions for organized storage and transportation. Ideal for separating and protecting fragile or multiple items, offering excellent impact resistance and easy handling with ergonomic grip designs.</span>
+                    </div>
+                </div>
+                <div class="it-product-btn">
+                    <a class="it-btn-sm" href="contact.html">
+                        <span>Shop Now <i class="fa-regular fa-cart-shopping"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product 11: PP Corrugated Box -->
+    <div class="col-lg-4 col-md-6 mb-35 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+        <div class="it-product-item p-relative">
+            <div class="it-product-thumb-box">
+                <div class="it-product-thumb fix p-relative" onclick="openLightbox(this)">
+                    <img src="assets/img/product13.png" alt="PP Corrugated Box" style="height: 350px;">
+                    <span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                </div>
+            </div>
+            <div class="it-product-content">
+                <div class="mb-25">
+                    <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
+                        <span class="it-product-ammount">Premium</span>
+                        <span class="it-product-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            (05)
+                        </span>
+                    </div>
+                    <h3 class="it-product-title">
+                        <a href="contact.html" class="border-line-black">PP Corrugated Box</a>
+                    </h3>
+                    <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
+                        <span class="it-product-ammount">Rigid polypropylene corrugated boxes that are lightweight, waterproof, and reusable. Offering excellent chemical resistance and durability, these boxes are perfect for industrial packaging, logistics, and material-handling applications.</span>
+                    </div>
+                </div>
+                <div class="it-product-btn">
+                    <a class="it-btn-sm" href="contact.html">
+                        <span>Shop Now <i class="fa-regular fa-cart-shopping"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product 12: PP Partition -->
+    <div class="col-lg-4 col-md-6 mb-35 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+        <div class="it-product-item p-relative">
+            <div class="it-product-thumb-box">
+                <div class="it-product-thumb fix p-relative" onclick="openLightbox(this)">
+                    <img src="assets/img/product14.png" alt="PP Partition" style="height: 350px;">
+                    <span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                </div>
+            </div>
+            <div class="it-product-content">
+                <div class="mb-25">
+                    <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
+                        <span class="it-product-ammount">Premium</span>
+                        <span class="it-product-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            (05)
+                        </span>
+                    </div>
+                    <h3 class="it-product-title">
+                        <a href="contact.html" class="border-line-black">PP Partition</a>
+                    </h3>
+                    <div class="it-product-ratting mb-20 d-flex justify-content-between align-items-center">
+                        <span class="it-product-ammount">Customizable polypropylene partitions designed to separate and protect individual items within boxes or crates. Provide excellent cushioning and surface protection, preventing scratches, impacts, and movement during transit.</span>
+                    </div>
+                </div>
+                <div class="it-product-btn">
+                    <a class="it-btn-sm" href="contact.html">
+                        <span>Shop Now <i class="fa-regular fa-cart-shopping"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- LIGHTBOX HTML -->
+<div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
+    <div class="lightbox-content" onclick="event.stopPropagation();">
+        <button class="close-btn" onclick="closeLightbox()">&times;</button>
+        <img id="lightboxImage" src="" alt="Product Image">
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+</div>
+
+<!-- LIGHTBOX SCRIPT -->
+
           
          </div>
       </div>
@@ -938,7 +1443,35 @@ cost-effective packaging solutions for diverse industries.</p>
   enquiryBox.classList.toggle("show");
 });
 </script>
+<script>
+    function openLightbox(element) {
+        const img = element.querySelector('img');
+        const overlay = document.getElementById('lightboxOverlay');
+        const lightboxImg = document.getElementById('lightboxImage');
+        const caption = document.getElementById('lightboxCaption');
+        
+        if (img) {
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt || 'Product Image';
+            caption.textContent = img.alt || '';
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
 
+    function closeLightbox() {
+        const overlay = document.getElementById('lightboxOverlay');
+        overlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeLightbox();
+        }
+    });
+</script>
 </body>
 
 
